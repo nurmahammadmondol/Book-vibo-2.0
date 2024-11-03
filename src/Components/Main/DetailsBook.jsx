@@ -1,6 +1,10 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
-import { addToStoredReadBook } from '../Script/LocalStoreg';
+import {
+  addToLocalStoredWishlistBooks,
+  addToStoredReadBook,
+} from '../Script/LocalStoreg';
+import { toast } from 'react-toastify';
 
 const DetailsBook = () => {
   const { bookId } = useParams();
@@ -28,9 +32,13 @@ const DetailsBook = () => {
     addToStoredReadBook(ID);
   };
 
+  const handelClickWishlistBooks = ID => {
+    addToLocalStoredWishlistBooks(ID);
+  };
+
   return (
-    <div className=" my-16 bg-gray-50 rounded-lg">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 h-full  lg:h-[750px] items-center p-8">
+    <div className=" w-11/12 mx-auto my-16 bg-gray-50 rounded-xl">
+      <div className="w-9/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 h-full  lg:h-[750px] items-center p-8">
         <div className=" w-full ">
           <img
             className="w-full h-[400px] lg:h-[640px] rounded-sm"
@@ -80,7 +88,10 @@ const DetailsBook = () => {
             >
               Read
             </button>
-            <button className="btn bg-[#59C6D2] text-white px-6">
+            <button
+              onClick={() => handelClickWishlistBooks(bookId)}
+              className="btn bg-[#59C6D2] text-white px-6"
+            >
               Wishlist
             </button>
           </div>

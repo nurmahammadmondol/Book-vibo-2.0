@@ -69,9 +69,9 @@ const ReadBooks = ({ SerialBook }) => {
             <span className="font-medium">Rating : </span>
             {rating}
           </p>
-          <button className="btn bg-green-500 btn-sm rounded-xl text-white ">
+          {/* <button className="btn bg-green-500 btn-sm rounded-xl text-white ">
             View Details
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
